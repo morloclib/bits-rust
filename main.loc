@@ -1,0 +1,27 @@
+module bits-rust (*)
+
+import bits
+import root-rust
+
+instance Bits Int
+       , Bits I8
+       , Bits I16
+       , Bits I32
+       , Bits I64
+       , Bits U8
+       , Bits U16
+       , Bits U32
+       , Bits U64 where
+  %inline source Rust from "bits.rs"
+    ( (&) as (.&.)
+    , `|` as (.|.)
+    , (^) as (.^.)
+    , "bits_shiftl" as shiftl
+    , "bits_shiftr" as shiftr
+    , "bits_bnot" as bnot
+    , "bits_testBit" as testBit
+    , "bits_setBit" as setBit
+    , "bits_clearBit" as clearBit
+    , "bits_flipBit" as flipBit
+    , "bits_popcount" as popcount
+    )
